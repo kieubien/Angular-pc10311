@@ -10,19 +10,29 @@ body {
     font-family: Arial, sans-serif;
 }
 .hero {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    position: relative;
     color: white;
     padding: 100px 0;
     text-align: center;
+    overflow: hidden;
 }
-.hero-img {
+.hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    max-width: 600px;
-    height: 380px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    margin-top: 40px;
+    z-index: 0;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
 .feature-icon {
     font-size: 40px;
@@ -57,15 +67,15 @@ body {
 
 <!-- Hero Section -->
 <section class="hero">
+  <!-- ✅ Hình làm background toàn banner -->
+  <img src="./img/anh1.webp" alt="Banner" class="hero-bg">
+  <!-- Lớp tối phủ lên để chữ dễ đọc -->
+  <div class="hero-overlay"></div>
+
   <div class="container">
     <h1 class="display-4 fw-bold">Chào mừng đến Landing Page</h1>
     <p class="lead">Xây dựng giao diện đẹp chỉ với Bootstrap</p>
     <a href="#" class="btn btn-light btn-lg mt-3">Bắt đầu ngay</a>
-
-    <div>
-      <img src="./img/anh1.webp" alt="Banner" class="hero-img">
-    </div>
-
   </div>
 </section>
 
